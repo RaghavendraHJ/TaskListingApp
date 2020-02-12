@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-import Timeline from "react-native-timeline-listview";
+import Timeline from "react-native-timeline-flatlist";
 
 export default class TimelineComponent extends React.Component {
   constructor(props) {

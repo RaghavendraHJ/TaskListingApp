@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import { Container, Root, Content } from "native-base";
 import LoginForm from "../components/LoginForm";
-// import SplashScreen from "react-native-splash-screen";
-import { StackActions, NavigationActions } from "@react-navigation/native";
+import SplashScreen from "react-native-splash-screen";
+import { StackActions, CommonActions } from "@react-navigation/native";
 
 export default class LoginScreen extends React.Component {
   constructor(props) {
@@ -38,16 +38,24 @@ export default class LoginScreen extends React.Component {
     );
   }
   componentDidMount() {
-    // SplashScreen.hide();
+    SplashScreen.hide();
   }
   componentWillUnmount() {
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
   }
   getCredentials() {
-    const resetAction = StackActions.reset({
+    const resetAction = CommonActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: "Start" })]
+      // key:undefined,
+      routes: [
+        { name: 'Login' },
+        {
+          name: 'Start',
+          // params: { user: 'jane' },
+        },
+      ],
+      // actions: [CommonActions.navigate({ name: "Start" })]
     });
     this.props.navigation.dispatch(resetAction);
   }

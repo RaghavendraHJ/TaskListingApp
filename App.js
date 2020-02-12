@@ -30,20 +30,26 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const Stack = createStackNavigator();
-
-function StartNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
-      <Stack.Screen name="Introduction" component={IntroductionScreen} />
-      <Stack.Screen name="Start" component={MainNavigator} />
-    </Stack.Navigator>
-  );
-}   
 
 const Drawer = createDrawerNavigator();
+
+function ListStack(){
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="List" component={ListScreen} />
+      <Stack.Screen name="TaskEditor" component={TaskEditorScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function CalendarStack(){
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Calendar" component={CalendarScreen} />
+      <Stack.Screen name="TaskEditor" component={TaskEditorScreen} />
+    </Stack.Navigator>
+  );
+}
 
 function MainNavigator() {
   return (
@@ -60,6 +66,19 @@ function MainNavigator() {
     </Drawer.Navigator>
   );
 }
+
+const Stack = createStackNavigator();
+
+function StartNavigator() {
+  return (
+    <Stack.Navigator headerMode={'none'}>
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Introduction" component={IntroductionScreen} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="Start" component={MainNavigator} />
+    </Stack.Navigator>
+  );
+}   
 
 export default function App() {
   return (
