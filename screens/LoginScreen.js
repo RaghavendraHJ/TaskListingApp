@@ -19,7 +19,7 @@ export default class LoginScreen extends React.Component {
       keyboardOpen: false
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
       () => {
@@ -36,8 +36,6 @@ export default class LoginScreen extends React.Component {
         });
       }
     );
-  }
-  componentDidMount() {
     SplashScreen.hide();
   }
   componentWillUnmount() {

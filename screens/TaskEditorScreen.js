@@ -67,7 +67,7 @@ export default class TaskEditorScreen extends React.Component {
   };
 
   render() {
-    const title = this.props.navigation.getParam("title", "New Item");
+    const title = this.props.route.params && this.props.route.params.title ? this.props.route.params.title : "New Item";
 
     return (
       <Container style={styles.container} contentContainerStyle={{ flex: 1 }}>
@@ -217,7 +217,7 @@ export default class TaskEditorScreen extends React.Component {
                 <Text style={{ color: "#605f5f", fontSize: 13 }}>Location</Text>
                 <Input
                   style={{ flex: 0.2, fontSize: 13 }}
-                  defaultValue={this.props.navigation.getParam("subtitle", "")}
+                  defaultValue={this.props.route.params && this.props.route.params.subtitle? this.props.route.params.subtitle : ""}
                   placeholder={"Location"}
                   placeholderTextColor={"black"}
                 />
