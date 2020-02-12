@@ -35,7 +35,7 @@ const Drawer = createDrawerNavigator();
 
 function ListStack(){
   return (
-    <Stack.Navigator>
+    <Stack.Navigator headerMode={'none'}>
       <Stack.Screen name="List" component={ListScreen} />
       <Stack.Screen name="TaskEditor" component={TaskEditorScreen} />
     </Stack.Navigator>
@@ -44,7 +44,7 @@ function ListStack(){
 
 function CalendarStack(){
   return (
-    <Stack.Navigator>
+    <Stack.Navigator headerMode={'none'}>
       <Stack.Screen name="Calendar" component={CalendarScreen} />
       <Stack.Screen name="TaskEditor" component={TaskEditorScreen} />
     </Stack.Navigator>
