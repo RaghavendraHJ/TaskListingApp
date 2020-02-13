@@ -18,7 +18,7 @@ import {
   Root,
   Content
 } from "native-base";
-import { StackActions, NavigationActions } from "@react-navigation/native";
+import { StackActions, CommonActions } from "@react-navigation/native";
 import DatePicker from "react-native-datepicker";
 
 const { width, height } = Dimensions.get("window");
@@ -47,9 +47,14 @@ export default class SignupScreen extends React.Component {
       this.state.password &&
       this.state.birthday
     ) {
-      const resetAction = StackActions.reset({
+      const resetAction = CommonActions.reset({
         index: 0,
-        actions: [NavigationActions.navigate({ routeName: "Introduction" })]
+        routes: [
+          // { name: 'SignUp' },
+          {
+            name: 'Introduction',
+          },
+        ],
       });
       this.props.navigation.dispatch(resetAction);
     }
@@ -68,9 +73,7 @@ export default class SignupScreen extends React.Component {
       </View>
     );
     return (
-      <Root>
-        <Container style={styles.container}>
-          <Content bounces={false}>
+        <View style={styles.container}>
             <ImageBackground
               source={require("../assets/bg.png")}
               style={styles.image}
@@ -306,9 +309,7 @@ export default class SignupScreen extends React.Component {
                 </View>
               </SafeAreaView>
             </ImageBackground>
-          </Content>
-        </Container>
-      </Root>
+        </View>
     );
   }
 }

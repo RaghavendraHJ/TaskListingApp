@@ -45,15 +45,12 @@ export default class LoginScreen extends React.Component {
   getCredentials() {
     const resetAction = CommonActions.reset({
       index: 0,
-      // key:undefined,
       routes: [
-        { name: 'Login' },
+        // { name: 'Login' },
         {
-          name: 'Start',
-          // params: { user: 'jane' },
+          name: 'Introduction',
         },
       ],
-      // actions: [CommonActions.navigate({ name: "Start" })]
     });
     this.props.navigation.dispatch(resetAction);
   }

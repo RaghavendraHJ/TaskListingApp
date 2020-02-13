@@ -38,7 +38,7 @@ export default class IntroductionScreen extends React.Component {
               <TouchableOpacity
                 style={{ flex: 0.4, alignItems: "center" }}
                 onPress={() => {
-                  this.props.navigation.navigate("Home");
+                  this.props.navigation.navigate("Start");
                 }}
               >
                 <Text style={styles.skipButton}>Skip</Text>
@@ -53,7 +53,7 @@ export default class IntroductionScreen extends React.Component {
                   backgroundColor: "#FF3366"
                 }}
                 onPress={() => {
-                  this.props.navigation.navigate("Home");
+                  this.props.navigation.navigate("Start");
                 }}
               >
                 <Text style={styles.nextButton}>Next</Text>

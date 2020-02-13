@@ -11,6 +11,7 @@ import {
   SafeAreaView,
   StyleSheet,
   StatusBar,
+  Text
 } from 'react-native';
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
@@ -53,7 +54,7 @@ function CalendarStack(){
 
 function MainNavigator() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator headerMode={'none'}>
       <Drawer.Screen name="Home" component={StartScreen} />
       <Drawer.Screen name="Calendar" component={CalendarStack} />
       <Drawer.Screen name="TaskEditor" component={TaskEditorScreen} />
@@ -71,6 +72,7 @@ const Stack = createStackNavigator();
 
 function StartNavigator() {
   return (
+    // <Text>Hello</Text>
     <Stack.Navigator headerMode={'none'}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Introduction" component={IntroductionScreen} />
