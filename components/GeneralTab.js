@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Form, Item, Input, Button } from "native-base";
 import { View, Image } from "react-native";
-import DatePicker from "react-native-datepicker";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 export default class GeneralTab extends React.Component {
   constructor(props) {
@@ -11,8 +11,12 @@ export default class GeneralTab extends React.Component {
       email: "adam@invisionapp.com",
       password: "secret",
       birthday: new Date("1997-06-21"),
+      birthdayVisible:false,
       location: "85 Main St, San Francisco, CA 94000"
     };
+  }
+  setBirthdayVisible(visible) {
+    this.setState({birthdayVisible: visible});
   }
   render() {
     return (
@@ -90,36 +94,22 @@ export default class GeneralTab extends React.Component {
               flex: 1
             }}
           >
-            <DatePicker
-              date={this.state.birthday}
-              androidMode={"default"}
-              confirmBtnText={"Confirm"}
-              cancelBtnText={"Cancel"}
-              placeholder="Birthday"
-              customStyles={{
-                dateIcon: {
-                  display: "none"
-                },
-                dateInput: {
-                  borderColor: "transparent"
-                },
-                placeholderText: {
-                  fontSize: 13,
-                  left: -30
-                },
-                dateText: {
-                  fontSize: 13,
-                  left: -30
-                }
-              }}
-              maxDate={new Date()}
-              onDateChange={newDate => {
-                this.setState({
-                  birthday: newDate
-                });
-              }}
-              disabled={false}
-            />
+            <Text
+                style={{ 
+                  width: '100%',
+                  paddingTop: 18,
+                  paddingBottom: 9,
+                  fontSize: 13
+                }}
+                onPress={()=>this.setBirthdayVisible(true)}>
+                {this.state.birthday.toDateString()}
+              </Text>
+              <DateTimePickerModal
+                isVisible={this.state.birthdayVisible}
+                mode="date"
+                onConfirm={(date)=>this.setState({birthday:date, errorMsgbday:false, birthdayVisible:false})}
+                onCancel={()=>this.setState({ birthdayVisible:false})}
+              />
           </View>
         </Item>
         <Item style={{ borderColor: "transparent", paddingTop: 10 }}>

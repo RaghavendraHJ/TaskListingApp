@@ -58,7 +58,7 @@ export default class CalendarScreen extends React.Component {
         <View style={{ paddingLeft: 20, paddingTop: 10 }}>
           <Text style={{ color: "white", fontSize: 30 }}>Wednesday</Text>
           <Text style={{ color: "#D8D8D8", fontSize: 12 }}>
-            February 18, 2019
+            February 18, 2020
           </Text>
         </View>
         <View style={{ flex: 1, paddingTop: 30 }}>

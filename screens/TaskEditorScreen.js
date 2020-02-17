@@ -21,7 +21,7 @@ import {
   Input
 } from "native-base";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import DatePicker from "react-native-datepicker";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const { width, height } = Dimensions.get("window");
 export default class TaskEditorScreen extends React.Component {
@@ -29,11 +29,16 @@ export default class TaskEditorScreen extends React.Component {
     super(props);
     this.state = {
       chosenDate: new Date(),
+      chosenDateVisible: false,
       startTime: "--",
       endTime: "--",
       startTimePickerVisible: false,
       endTimePickerVisible: false
     };
+  }
+
+  setChosenDateVisible(visible) {
+    this.setState({chosenDateVisible: visible});
   }
 
   showStartDateTimePicker = () => {
@@ -137,25 +142,19 @@ export default class TaskEditorScreen extends React.Component {
                     this.dobPicker.onPressDate();
                   }}
                 >
-                  <DatePicker
-                    date={this.state.chosenDate}
-                    androidMode={"default"}
-                    confirmBtnText={"Confirm"}
-                    cancelBtnText={"Cancel"}
-                    customStyles={{
-                      dateIcon: {},
-                      dateInput: {
-                        borderColor: "transparent"
-                      },
-                      placeholderText: {
-                        color: "black"
-                      }
+                  <Text
+                    style={{ 
+                      width: '100%',
+                      color: '#605f5f'
                     }}
-                    placeholder={new Date(Date.now()).toString().substr(4, 12)}
-                    onDateChange={date => {
-                      this.setState({ chosenDate: date });
-                    }}
-                    ref={component => (this.dobPicker = component)}
+                    onPress={()=>this.setChosenDateVisible(true)}>
+                    {this.state.chosenDate.toDateString()}
+                  </Text>
+                  <DateTimePickerModal
+                    isVisible={this.state.chosenDateVisible}
+                    mode="date"
+                    onConfirm={(date)=>this.setState({chosenDate:date, errorMsgbday:false, chosenDateVisible:false})}
+                    onCancel={()=>this.setState({ chosenDateVisible:false})}
                   />
                 </TouchableOpacity>
               </Item>

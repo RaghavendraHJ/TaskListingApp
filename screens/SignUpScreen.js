@@ -6,7 +6,8 @@ import {
   ImageBackground,
   Dimensions,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Modal
 } from "react-native";
 import {
   Button,
@@ -18,8 +19,8 @@ import {
   Root,
   Content
 } from "native-base";
-import { StackActions, CommonActions } from "@react-navigation/native";
-import DatePicker from "react-native-datepicker";
+import { CommonActions } from "@react-navigation/native";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const { width, height } = Dimensions.get("window");
 
@@ -33,12 +34,16 @@ export default class SignupScreen extends React.Component {
       name: "",
       email: "",
       password: "",
-      birthday: "",
+      birthdayVisible: false,
+      birthday: new Date(),
       errorMsgName: false,
       errorMsgEmail: false,
       errorMsgPwd: false,
       errorMsgbday: false
     };
+  }
+  setBirthdayVisible(visible) {
+    this.setState({birthdayVisible: visible});
   }
   validateAndNavigate() {
     if (
@@ -59,6 +64,7 @@ export default class SignupScreen extends React.Component {
       this.props.navigation.dispatch(resetAction);
     }
   }
+  
   render() {
     let errorMsg = (
       <View style={{ position: "absolute", bottom: -15, marginLeft: 15 }}>
@@ -246,38 +252,19 @@ export default class SignupScreen extends React.Component {
                             width: "100%"
                           }}
                         >
-                          <DatePicker
-                            date={this.state.birthday}
-                            androidMode={"default"}
-                            confirmBtnText={"Confirm"}
-                            cancelBtnText={"Cancel"}
-                            placeholder="Birthday"
-                            customStyles={{
-                              dateIcon: {
-                                display: "none"
-                              },
-                              dateInput: {
-                                borderColor: "transparent"
-                              },
-                              placeholderText: {
-                                color: "#D8D8D8",
-                                fontSize: 18,
-                                left: -30
-                              },
-                              dateText: {
-                                color: "#D8D8D8",
-                                fontSize: 18,
-                                left: -20
-                              }
+                          <Text
+                            style={{ 
+                              width: '100%',
+                              color: '#D8D8D8'
                             }}
-                            maxDate={new Date()}
-                            onDateChange={newDate => {
-                              this.setState({
-                                birthday: newDate,
-                                errorMsgbday: false
-                              });
-                            }}
-                            disabled={false}
+                            onPress={()=>this.setBirthdayVisible(true)}>
+                            {this.state.birthday.toDateString()}
+                          </Text>
+                          <DateTimePickerModal
+                            isVisible={this.state.birthdayVisible}
+                            mode="date"
+                            onConfirm={(date)=>this.setState({birthday:date, errorMsgbday:false, birthdayVisible:false})}
+                            onCancel={()=>this.setState({ birthdayVisible:false})}
                           />
                         </View>
                         {this.state.errorMsgbday ? errorMsg : null}

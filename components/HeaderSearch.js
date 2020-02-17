@@ -42,7 +42,7 @@ export default class HeaderSearch extends React.Component {
             <Input
               placeholder="Search"
               placeholderTextColor="white"
-              style={{ color: "white" }}
+              style={{ color: "white", fontSize: 14 }}
             />
             <Button
               onPress={() => {
@@ -50,7 +50,7 @@ export default class HeaderSearch extends React.Component {
               }}
               transparent
             >
-              <Icon active name="close" style={{ color: "#D8D8D8", top: -7 }} />
+              <Icon active name="close" style={{ color: "#D8D8D8", top: 0 }} />
             </Button>
           </Item>
         </Body>

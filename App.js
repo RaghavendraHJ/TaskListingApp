@@ -30,9 +30,15 @@ import SideBar from "./components/SideBar";
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { YellowBox } from 'react-native'
 
+YellowBox.ignoreWarnings([
+  'VirtualizedLists should never be nested',
+])
 
 const Drawer = createDrawerNavigator();
+
+const Stack = createStackNavigator();
 
 function ListStack(){
   return (
@@ -68,7 +74,6 @@ function MainNavigator() {
   );
 }
 
-const Stack = createStackNavigator();
 
 function StartNavigator() {
   return (

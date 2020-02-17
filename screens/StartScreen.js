@@ -143,7 +143,7 @@ export default class StartScreen extends React.Component {
               <View style={styles.panel}>
                 <View style={{ marginLeft: 15 }}>
                   <Text style={styles.weekDay}>Thursday</Text>
-                  <Text style={styles.date}>February 19, 2019</Text>
+                  <Text style={styles.date}>February 19, 2020</Text>
                 </View>
                 <View style={{ marginRight: 10 }}>
                   <View

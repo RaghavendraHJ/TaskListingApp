@@ -69,7 +69,7 @@ export default class TimelineScreen extends React.Component {
 
         <View style={{ paddingLeft: 20, paddingTop: 10 }}>
           <Text style={{ color: "white", fontSize: 25 }}>Timeline</Text>
-          <Text style={{ color: "#D8D8D8", fontSize: 15 }}> March 2019</Text>
+          <Text style={{ color: "#D8D8D8", fontSize: 15 }}> March 2020</Text>
         </View>
         <View style={{ paddingTop: 20, paddingBottom: 40 }} />
         <Content style={{ flex: 1, backgroundColor: "white" }}>
@@ -81,13 +81,13 @@ export default class TimelineScreen extends React.Component {
             }}
           >
             <Text style={{ fontSize: 13, color: "#1D1D26" }}>
-              MON, MAR 23, 2019
+              MON, MAR 23, 2020
             </Text>
           </View>
           <Timeline data={this.data} />
           <View style={{ backgroundColor: "#edeeef", padding: 20 }}>
             <Text style={{ fontSize: 13, color: "#1D1D26" }}>
-              TUE, MAR 24, 2019
+              TUE, MAR 24, 2020
             </Text>
           </View>
           <Timeline data={this.data} />

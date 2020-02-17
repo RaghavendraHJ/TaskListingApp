@@ -6,7 +6,7 @@ const { width } = Dimensions.get("window");
 const tabs = [
   {
     month: "January",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 54,
       snoozed: 37,
@@ -15,7 +15,7 @@ const tabs = [
   },
   {
     month: "February",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -24,7 +24,7 @@ const tabs = [
   },
   {
     month: "March",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -33,7 +33,7 @@ const tabs = [
   },
   {
     month: "April",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -42,7 +42,7 @@ const tabs = [
   },
   {
     month: "May",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -51,7 +51,7 @@ const tabs = [
   },
   {
     month: "June",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -60,7 +60,7 @@ const tabs = [
   },
   {
     month: "July",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -69,7 +69,7 @@ const tabs = [
   },
   {
     month: "August",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -78,7 +78,7 @@ const tabs = [
   },
   {
     month: "September",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -87,7 +87,7 @@ const tabs = [
   },
   {
     month: "October",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -96,7 +96,7 @@ const tabs = [
   },
   {
     month: "November",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
@@ -105,7 +105,7 @@ const tabs = [
   },
   {
     month: "December",
-    year: "2019",
+    year: "2020",
     data: {
       completed: 21,
       snoozed: 13,
