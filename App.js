@@ -8,10 +8,10 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  StatusBar,
-  Text
+  View,
+  Image,
+  Text,
+  StyleSheet
 } from 'react-native';
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
@@ -54,7 +54,7 @@ function CalendarStack(){
 
 function MainNavigator() {
   return (
-    <Drawer.Navigator headerMode={'none'}>
+    <Drawer.Navigator headerMode={'none'} drawerContent={props => <SideBar {...props} />}>
       <Drawer.Screen name="Home" component={StartScreen} />
       <Drawer.Screen name="Calendar" component={CalendarStack} />
       <Drawer.Screen name="TaskEditor" component={TaskEditorScreen} />
@@ -72,7 +72,6 @@ const Stack = createStackNavigator();
 
 function StartNavigator() {
   return (
-    // <Text>Hello</Text>
     <Stack.Navigator headerMode={'none'}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Introduction" component={IntroductionScreen} />
@@ -89,3 +88,12 @@ export default function App() {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  profile: {
+    flex: 3,
+    alignSelf: "stretch",
+    paddingLeft: 20,
+    flexDirection: "row"
+  }
+});

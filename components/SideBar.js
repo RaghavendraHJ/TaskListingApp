@@ -14,7 +14,7 @@ export default class SideBar extends React.Component {
             />
           </View>
           <View style={{ justifyContent: "center", marginLeft: 20 }}>
-            <Text style={{ fontSize: 25, color: "black" }}>Adam Lane</Text>
+            <Text style={{ fontSize: 25, color: "black" }}>Adam Lanes</Text>
             <Text style={{ fontSize: 10 }}>adam@gmail.com</Text>
           </View>
         </View>
