@@ -83,7 +83,7 @@ function StartNavigator() {
 }   
 
 export default function App() {
-  return (
+  return ( 
     <NavigationContainer>
       <StartNavigator/>
     </NavigationContainer>
