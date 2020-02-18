@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Dimensions,
   TouchableOpacity,
+  KeyboardAvoidingView,
   SafeAreaView,
   Modal
 } from "react-native";
@@ -13,6 +14,7 @@ import {
   Button,
   Text,
   Container,
+
   Item,
   Input,
   Icon,
@@ -55,7 +57,7 @@ export default class SignupScreen extends React.Component {
       const resetAction = CommonActions.reset({
         index: 0,
         routes: [
-          // { name: 'SignUp' },
+          { name: 'SignUp' },
           {
             name: 'Introduction',
           },
@@ -79,7 +81,7 @@ export default class SignupScreen extends React.Component {
       </View>
     );
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container} contentContainerStyle={{ flex: 1 }} behavior="padding" enabled>
             <ImageBackground
               source={require("../assets/bg.png")}
               style={styles.image}
@@ -296,7 +298,7 @@ export default class SignupScreen extends React.Component {
                 </View>
               </SafeAreaView>
             </ImageBackground>
-        </View>
+        </KeyboardAvoidingView>
     );
   }
 }
