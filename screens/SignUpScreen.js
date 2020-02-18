@@ -81,12 +81,12 @@ export default class SignupScreen extends React.Component {
       </View>
     );
     return (
-        <KeyboardAvoidingView style={styles.container} contentContainerStyle={{ flex: 1 }} behavior="padding" enabled>
+        <Container style={styles.container} contentContainerStyle={{ flex: 1 }}>
             <ImageBackground
               source={require("../assets/bg.png")}
               style={styles.image}
             >
-              <SafeAreaView style={{ flex: 1, width: "100%" }}>
+              <KeyboardAvoidingView style={styles.container} style={{ flex: 1, width:"100%" }} behavior="padding" enabled>
                 <View style={{ flex: 0.1 }}>
                   <Button
                     onPress={() => {
@@ -296,9 +296,9 @@ export default class SignupScreen extends React.Component {
                     <Text style={{ color: "#D8D8D8" }}>Create</Text>
                   </TouchableOpacity>
                 </View>
-              </SafeAreaView>
+              </KeyboardAvoidingView>
             </ImageBackground>
-        </KeyboardAvoidingView>
+        </Container>
     );
   }
 }
