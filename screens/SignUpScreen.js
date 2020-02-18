@@ -14,7 +14,6 @@ import {
   Button,
   Text,
   Container,
-
   Item,
   Input,
   Icon,
@@ -23,6 +22,7 @@ import {
 } from "native-base";
 import { CommonActions } from "@react-navigation/native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const { width, height } = Dimensions.get("window");
 
@@ -81,45 +81,43 @@ export default class SignupScreen extends React.Component {
       </View>
     );
     return (
-        <Container style={styles.container} contentContainerStyle={{ flex: 1 }}>
-            <ImageBackground
-              source={require("../assets/bg.png")}
-              style={styles.image}
+      <KeyboardAwareScrollView>
+      <ImageBackground
+        source={require("../assets/bg.png")}
+        style={styles.image}>
+          <View style={{ flex: 0.1 }}>
+            <Button
+              onPress={() => {
+                this.props.navigation.goBack();
+              }}
+              style={styles.row}
+              transparent
             >
-              <KeyboardAvoidingView style={styles.container} style={{ flex: 1, width:"100%" }} behavior="padding" enabled>
-                <View style={{ flex: 0.1 }}>
-                  <Button
-                    onPress={() => {
-                      this.props.navigation.goBack();
-                    }}
-                    style={styles.row}
-                    transparent
-                  >
-                    <Image
-                      source={require("../assets/back.png")}
-                      style={styles.backButton}
-                    />
-                  </Button>
-                </View>
-                <View style={{ flex: 0.1 }}>
-                  <View style={styles.row}>
-                    <Text style={styles.title}>New Account</Text>
-                  </View>
-                </View>
-                <View style={styles.pictureContainer}>
-                  <TouchableOpacity
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "center"
-                    }}
-                  >
-                    <Image
-                      source={require("../assets/add-photo.png")}
-                      style={styles.picInput}
-                    />
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.formContainer}>
+              <Image
+                source={require("../assets/back.png")}
+                style={styles.backButton}
+              />
+            </Button>
+          </View>
+          <View style={{ flex: 0.1 }}>
+            <View style={styles.row}>
+              <Text style={styles.title}>New Account</Text>
+            </View>
+          </View>
+          <View style={styles.pictureContainer}>
+            <TouchableOpacity
+              style={{
+                flexDirection: "row",
+                justifyContent: "center"
+              }}
+            >
+              <Image
+                source={require("../assets/add-photo.png")}
+                style={styles.picInput}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.formContainer}>
                   <View style={styles.horizontalContainer}>
                     <Item
                       style={{ borderColor: "transparent", marginLeft: 20 }}
@@ -296,9 +294,9 @@ export default class SignupScreen extends React.Component {
                     <Text style={{ color: "#D8D8D8" }}>Create</Text>
                   </TouchableOpacity>
                 </View>
-              </KeyboardAvoidingView>
-            </ImageBackground>
-        </Container>
+              
+      </ImageBackground>
+    </KeyboardAwareScrollView>
     );
   }
 }
