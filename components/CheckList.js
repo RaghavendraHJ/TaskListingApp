@@ -33,7 +33,7 @@ export default class CheckList extends React.Component {
             >
               <Image
                 source={iconSource}
-                style={{ width: 20, height: 20, marginLeft: 20 }}
+                style={{ width: 25, height: 25, marginLeft: 20 }}
                 resizeMode={"contain"}
               />
               <Body

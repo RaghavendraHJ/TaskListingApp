@@ -29,14 +29,14 @@ export default class Scrollable extends React.Component {
           >
             <Button
               transparent
-              style={{ height: 20, width: 20 }}
+              style={{ height: 30, width: 30 }}
               onPress={() => {
                 this.props.goPrevious(this.props.index);
               }}
             >
               <Image
                 source={require("../assets/left-white.png")}
-                style={{ height: 20, width: 20 }}
+                style={{ height: 30, width: 30, }}
                 resizeMode="contain"
               />
             </Button>
@@ -45,14 +45,14 @@ export default class Scrollable extends React.Component {
             </Text>
             <Button
               transparent
-              style={{ height: 20, width: 20 }}
+              style={{ height: 30, width: 30 }}
               onPress={() => {
                 this.props.goToNext(this.props.index);
               }}
             >
               <Image
                 source={require("../assets/right-white.png")}
-                style={{ height: 20, width: 20 }}
+                style={{ height: 30, width: 30 }}
                 resizeMode="contain"
               />
             </Button>

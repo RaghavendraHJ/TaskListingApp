@@ -41,7 +41,8 @@ export default class SignupScreen extends React.Component {
       errorMsgName: false,
       errorMsgEmail: false,
       errorMsgPwd: false,
-      errorMsgbday: false
+      errorMsgbday: false,
+      errorMsgInvalidEmail: false,
     };
   }
   setBirthdayVisible(visible) {
@@ -52,7 +53,8 @@ export default class SignupScreen extends React.Component {
       this.state.name &&
       this.state.email &&
       this.state.password &&
-      this.state.birthday
+      this.state.birthday &&
+      validEmail.test(this.state.email)
     ) {
       const resetAction = CommonActions.reset({
         index: 0,
@@ -177,13 +179,7 @@ export default class SignupScreen extends React.Component {
                             });
                           }}
                         />
-                        {this.state.errorMsgEmail
-                          ? errorMsg
-                          : validEmail.test(this.state.email)
-                          ? null
-                          : this.state.email
-                          ? invalidEmail
-                          : null}
+                        {this.state.errorMsgEmail ? errorMsg : validEmail.test(this.state.email) ? null : this.state.email ? invalidEmail : null}
                       </View>
                     </Item>
                   </View>
@@ -287,6 +283,9 @@ export default class SignupScreen extends React.Component {
                       }
                       if (!this.state.birthday) {
                         this.setState({ errorMsgbday: true });
+                      }
+                      if(validEmail.test(this.state.email)){
+                        this.setState({ errorMsgPwd: true });
                       }
                       this.validateAndNavigate();
                     }}

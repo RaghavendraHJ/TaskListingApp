@@ -53,6 +53,9 @@ export default class LoginForm extends React.Component {
                 onChangeText={text => {
                   this.setState({ username: text, errorMsgDisplayUser: false });
                 }}
+                returnKeyType = { "next" }
+                onSubmitEditing={() => this.secondTextInput._root.focus()}
+                blurOnSubmit={false}            
               />
               {this.state.errorMsgDisplayUser ? errorMsg : null}
             </View>
@@ -68,6 +71,7 @@ export default class LoginForm extends React.Component {
             />
             <View style={{ flex: 1, flexDirection: "row" }}>
               <Input
+              ref={(input) => this.secondTextInput = input}
                 style={{
                   marginLeft: 10,
                   marginRight: 20,
