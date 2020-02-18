@@ -233,7 +233,7 @@ export default class SignupScreen extends React.Component {
                     >
                       <Icon
                         active
-                        type="MaterialCommunityIcons"
+                        type="AntDesign"
                         name="gift"
                         style={{ color: "#D8D8D8" }}
                       />
